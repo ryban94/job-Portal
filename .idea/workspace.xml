@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0cd84b45-5f0b-40e1-9890-48c9acebd1ab" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/FacultyUI" beforeDir="false" afterPath="$PROJECT_DIR$/FacultyUI" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacultyUI/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacultyUI/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/FacultyUI/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacultyUI/static/node_modules/textextensions/.github/FUNDING.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacultyUI/templates/faculty_enrollment.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacultyUI/templates/faculty_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/FacultyUI/templates/faculty_index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacultyUI/templates/faculty_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/FacultyUI/templates/faculty_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacultyUI/templates/faculty_profile_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/FacultyUI/templates/faculty_profile_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacultyUI/templates/faculty_student_single.html" beforeDir="false" afterPath="$PROJECT_DIR$/FacultyUI/templates/faculty_student_single.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacultyUI/templates/faculty_student_view.html" beforeDir="false" afterPath="$PROJECT_DIR$/FacultyUI/templates/faculty_student_view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacultyUI/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/FacultyUI/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacultyUI/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/FacultyUI/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacultyUI/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/FacultyUI/views.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/FacultyUI" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Y7ErjP7UzP8NPSrX2kLvG0bLCJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/local folder/luminar/CMS/CMS&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0cd84b45-5f0b-40e1-9890-48c9acebd1ab" name="Changes" comment="" />
+      <created>1699868418444</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1699868418444</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
