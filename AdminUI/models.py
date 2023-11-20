@@ -60,7 +60,7 @@ class JobApplications(models.Model):
     StudentId = models.ForeignKey(StudentDB, on_delete=models.CASCADE)
     Resume = models.FileField(upload_to="Resume")
     
-class JnewsDB(models.Model):
+class newsDB(models.Model):
     newsId = models.AutoField(primary_key=True)
     news_Title = models.CharField(max_length=100,null=True,blank=True)
     news_Location = models.CharField(max_length=100,null=True,blank=True)

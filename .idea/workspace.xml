@@ -2,19 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0cd84b45-5f0b-40e1-9890-48c9acebd1ab" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/FacultyUI" beforeDir="false" afterPath="$PROJECT_DIR$/FacultyUI" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FacultyUI/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FacultyUI/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/FacultyUI/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FacultyUI/static/node_modules/textextensions/.github/FUNDING.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FacultyUI/templates/faculty_enrollment.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FacultyUI/templates/faculty_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/FacultyUI/templates/faculty_index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FacultyUI/templates/faculty_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/FacultyUI/templates/faculty_profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FacultyUI/templates/faculty_profile_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/FacultyUI/templates/faculty_profile_edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FacultyUI/templates/faculty_student_single.html" beforeDir="false" afterPath="$PROJECT_DIR$/FacultyUI/templates/faculty_student_single.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FacultyUI/templates/faculty_student_view.html" beforeDir="false" afterPath="$PROJECT_DIR$/FacultyUI/templates/faculty_student_view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FacultyUI/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/FacultyUI/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FacultyUI/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/FacultyUI/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FacultyUI/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/FacultyUI/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminUI/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/AdminUI/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminUI/templates/add_news.html" beforeDir="false" afterPath="$PROJECT_DIR$/AdminUI/templates/add_news.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminUI/templates/adminindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/AdminUI/templates/adminindex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminUI/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/AdminUI/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminUI/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AdminUI/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/FacultyUI" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

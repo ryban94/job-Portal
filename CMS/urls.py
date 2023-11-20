@@ -26,7 +26,7 @@ from . import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('AdminUI/',include(AdminUI.urls)),
-    path('Student/',include(Student.urls)),
+    path('',include(Student.urls)),
     path('FacultyUI/',include(FacultyUI.urls)),
 
 ]

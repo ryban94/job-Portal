@@ -39,6 +39,9 @@ urlpatterns = [
     path('resume_download/<int:job_id>/<int:stud_id>/', views.resume_download, name="resume_download"),
     path('application_single/<int:dataid>/', views.application_single, name="application_single"),
     path('add_news/', views.add_news, name="add_news"),
+    path('news_save/', views.news_save, name="news_save"),
+    path('news_view/', views.news_view, name="news_view"),
+    path('news_delete/<int:data_id>/', views.news_delete, name="news_delete"),
     
     
 ]

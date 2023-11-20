@@ -38,10 +38,11 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 <header>
-
+    <a href="{% url 'main_page' %}">
     <h1 class="text-center"><img src="{% static 'images/logo.jpeg' %}" alt="college-logo" style="width:40px;"
-         class="rounded-pill">College Administration</h1>
-
+         class="rounded-pill">College Administration</h1> 
+        </a>
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
 
 </header>
 {% block login %}

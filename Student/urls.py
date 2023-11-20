@@ -2,7 +2,7 @@ from django.urls import path
 from Student import views
 
 urlpatterns = [
-    path('main_page/', views.main_page, name="main_page"),
+    path('', views.main_page, name="main_page"),
     path('recruiter/', views.recruiter, name="recruiter"),
     path('placement/', views.placement, name="placement"),
     path('training/', views.training, name="training"),
@@ -15,6 +15,7 @@ urlpatterns = [
     path('stud_edit/',views.stud_edit,name="stud_edit"),
     path('stud_save/',views.stud_save,name="stud_save"),
     path('stud_notification/',views.stud_notification,name="stud_notification"),
+    path('notification_single/<int:news_id>',views.notification_single,name="notification_single"),
     path('stud_user/',views.stud_user,name="stud_user"),
     path('stud_login/',views.stud_login,name="stud_login"),
     path('stud_save/',views.stud_save,name="stud_save"),

@@ -8,7 +8,7 @@ from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
 from django.utils.datastructures import MultiValueDictKeyError
 
-from AdminUI.models import DepartmentDB, CourseDB, StudentDB, FacultyEnrollmentDB, JobsDB, JobApplications
+from AdminUI.models import DepartmentDB, CourseDB, StudentDB, FacultyEnrollmentDB, JobsDB, JobApplications,newsDB
 from FacultyUI.models import FacultyDB
 
 
@@ -357,3 +357,26 @@ def application_single(request, dataid):
 
 def add_news(request):
     return render(request, "add_news.html")
+
+def news_save(request):
+    if request.method == "POST":
+        title = request.POST.get("news_Title")
+        company = request.POST.get("news_Location")
+        location = request.POST.get("news_date")
+        date_obj = datetime.strptime(location, "%d-%m-%Y")
+        formatted_endate = date_obj.strftime("%Y-%m-%d")
+        description = request.POST.get("Description")
+        im = request.FILES['image']
+        obj = newsDB(news_Title=title, news_Location=company, news_date=formatted_endate,
+                     Description=description,news_image=im)
+        obj.save()
+        return redirect(add_news)
+    
+def news_view(request):
+    obj=newsDB.objects.all()
+    return render(request,"news_view.html",{"obj":obj})
+
+def news_delete(request, data_id):
+    job_data = newsDB.objects.filter(newsId=data_id)
+    job_data.delete()
+    return redirect(news_view)

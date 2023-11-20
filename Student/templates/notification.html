@@ -8,20 +8,39 @@
 </head>
 <body>
 {% block content %}
-<div class="col-12 mb-4">
-                  <h2 class="mt-2 text-center font-weight-light text-uppercase">NOTIFICATION</h2>
-                </div>
-<div class="col-12 grid-margin" id="introduction">
-                  <div class="card">
-                      <div class="card-body">
-                          <h3 class="mb-4">Christmas Celebration</h3>
-                          <p>College is planning to conduct christmas celebration on 22 December 2023</p>
-                          <p>Student are requested to attend the function. The programs will update it later.</p>
-                          <p class="d-inline"><strong>Note</strong>: No alchol and drugs inside the campus.Strict action will be taken.</a></p>
-                      </div>
-                  </div>
-                </div>
+<div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Notifications</h4>
+        <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th> News Id</th>
+              <th> Title </th>
+              <th> Location </th>
+              <th> Date </th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for i in obj %}
+          <tr>
+            
+              <td> {{i.newsId}}</td>
+              <td> {{i.news_Title}}</td>
+              <td> {{i.news_Location}}</td>
+              <td> {{i.news_date}}</td>
+              <td>
+                <a href="{% url 'notification_single' news_id=i.newsId %}">More details...</i></a>&nbsp;&nbsp;
+            </td>
+            </tr>
+            {% endfor %}
 
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
 {% endblock %}
 </body>
 </html>
