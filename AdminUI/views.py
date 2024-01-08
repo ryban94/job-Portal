@@ -8,7 +8,7 @@ from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
 from django.utils.datastructures import MultiValueDictKeyError
 
-from AdminUI.models import DepartmentDB, CourseDB, StudentDB, FacultyEnrollmentDB, JobsDB, JobApplications,newsDB
+from AdminUI.models import DepartmentDB, CourseDB, StudentDB, FacultyEnrollmentDB, JobsDB, JobApplications,newsDB,placed_studdb
 from FacultyUI.models import FacultyDB
 
 
@@ -130,7 +130,7 @@ def submit_student(request):
         im = request.FILES['img']
         obj = StudentDB(FirstName=fname, LastName=lname, EnrollmentID=enid, EnrollDate=endate, CourseId=course_data,
                         DateOfBirth=dob, Gender=gender, Email=email, ContactNo=contact, Address=address,
-                        GuardianName=gname, GuardianContact=gcontact, Image=im)
+                        GuardianName=gname, GuardianContact=gcontact, Image=im,password=contact)
         obj.save()
         return redirect(add_student)
 
@@ -194,7 +194,7 @@ def update_student(request, dataid):
                                                           EnrollDate=formatted_endate, CourseId=course_data,
                                                           DateOfBirth=formatted_dob, Gender=gender, Email=email,
                                                           ContactNo=contact, Address=address, GuardianName=gname,
-                                                          GuardianContact=gcontact, Image=file)
+                                                          GuardianContact=gcontact, Image=file,password=contact)
         return redirect(view_students)
 
 
@@ -380,3 +380,26 @@ def news_delete(request, data_id):
     job_data = newsDB.objects.filter(newsId=data_id)
     job_data.delete()
     return redirect(news_view)
+
+def placed(request):
+    return render(request,"placed.html")
+
+def add_placed(request):
+    if request.method=="POST":
+        na=request.POST.get("p_name")
+        comp=request.POST.get("p_company")
+        des=request.POST.get("p_des")
+        dis=request.POST.get("p_dis")
+        img=request.FILES["p_img"]
+        obj=placed_studdb(p_name=na,p_company=comp,p_des=des,p_dis=dis,p_img=img)
+        obj.save()
+        return redirect(display_placed)
+
+def display_placed(request):
+    data=placed_studdb.objects.all()
+    return render(request,"display_placed.html",{'data':data})
+
+def placed_delete(request, data_id):
+    placed_data = placed_studdb.objects.filter(p_id=data_id)
+    placed_data.delete()
+    return redirect(display_placed)

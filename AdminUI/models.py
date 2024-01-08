@@ -31,6 +31,10 @@ class StudentDB(models.Model):
     EnrollmentID = models.CharField(max_length=20, null=True, blank=True)
     EnrollDate = models.DateField(null=True, blank=True)
     CourseId = models.ForeignKey(CourseDB, on_delete=models.CASCADE, null=True, blank=True)
+    Pancard = models.CharField(max_length=50,null=True,blank=True)
+    adhaar = models.CharField(max_length=50,null=True,blank=True)
+    password=models.CharField(max_length=50,null=True,blank=True)
+    
 
 
 class FacultyEnrollmentDB(models.Model):
@@ -67,3 +71,13 @@ class newsDB(models.Model):
     news_date = models.DateField(null=True,blank=True)
     Description = models.CharField(max_length=1000,null=True,blank=True)
     news_image = models.ImageField(upload_to="job",null=True,blank=True)
+    
+    
+class placed_studdb(models.Model):
+    p_id=models.AutoField(primary_key=True)
+    p_name=models.CharField(max_length=50,null=True,blank=True)
+    p_company=models.CharField(max_length=50,null=True,blank=True)
+    p_des=models.CharField(max_length=50,null=True,blank=True)
+    p_dis=models.CharField(max_length=50,null=True,blank=True)
+    p_img=models.ImageField(upload_to="placement",null=True,blank=True)
+    

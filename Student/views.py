@@ -5,9 +5,15 @@ from django.core.files.storage import FileSystemStorage
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.datastructures import MultiValueDictKeyError
 from django.contrib.auth.decorators import login_required
-from AdminUI.models import StudentDB, DepartmentDB, CourseDB,JobsDB,JobApplications,newsDB
+from AdminUI.models import StudentDB, DepartmentDB, CourseDB,JobsDB,JobApplications,newsDB,placed_studdb
 import FacultyUI.views
 import AdminUI.views
+import random
+from django.core.mail import send_mail
+from django_otp import user_has_device
+from django_otp.plugins.otp_totp.models import TOTPDevice
+from django.urls import reverse
+from django.core.mail import send_mail
 
 
 # Create your views here.
@@ -18,13 +24,14 @@ def main_login(request):
 def main_page(request):
     stud_id = request.session.get("username")
     last_post = newsDB.objects.latest('newsId')
-    recent_posts = newsDB.objects.order_by('newsId')[1:5]
+    recent_posts = newsDB.objects.order_by('newsId')[0:5]
     job_data=JobsDB.objects.all()
+    placed_posts=placed_studdb.objects.order_by('p_id')[0:30]
     if stud_id:
         name = StudentDB.objects.get(StudentId=stud_id)
-        return render(request,"main_home.html",{"name":name,"job_data":job_data,"last_post":last_post,"recent_posts":recent_posts})
+        return render(request,"main_home.html",{"name":name,"job_data":job_data,"last_post":last_post,"recent_posts":recent_posts,"placed_posts":placed_posts})
     else:
-        return render(request,"main_home.html",{"job_data":job_data,"last_post":last_post,"recent_posts":recent_posts})
+        return render(request,"main_home.html",{"job_data":job_data,"last_post":last_post,"recent_posts":recent_posts,"placed_posts":placed_posts})
 
 def recruiter(request):
     stud_id = request.session.get("username")
@@ -33,7 +40,7 @@ def recruiter(request):
         name = StudentDB.objects.get(StudentId=stud_id)
         return render(request,"1_recruiter.html",{"name":name,'job_data':job_data})
     else:
-        return render(request,"1_recruiter.html",{'job_data':job_data})
+        return render   (request,"1_recruiter.html",{'job_data':job_data})
 
 
 def placement(request):
@@ -86,7 +93,6 @@ def stud_save(request):
         stud_dob = request.POST.get('DateOfBirth')
         date_objj = datetime.strptime(stud_dob, "%B %d, %Y")
         formatted_dob = date_objj.strftime("%Y-%m-%d")
-
         stud_gender = request.POST.get('Gender')
         stud_email = request.POST.get('Email')
         stud_mob = request.POST.get('ContactNo')
@@ -95,6 +101,8 @@ def stud_save(request):
         stud_gname = request.POST.get('GuardianName')
         stud_dept = request.POST.get('DeptName')
         stud_course = request.POST.get('CourseName')
+        pa=request.POST.get("Pancard")
+        adhar=request.POST.get("adhaar")
         try:
             stud_image = request.FILES['Image']
             fs = FileSystemStorage()
@@ -108,14 +116,14 @@ def stud_save(request):
                                                                Email=stud_email, ContactNo=stud_mob,
                                                                Address=stud_address,
                                                                GuardianContact=stud_gcontact, GuardianName=stud_gname,
-                                                               Image=file)
+                                                               Image=file,Pancard=pa,adhaar=adhar)
         else:
             stud_image = request.FILES['Image']
             obj = StudentDB(FirstName=stud_fname, LastName=stud_lname,
                             DateOfBirth=stud_dob, Gender=stud_gender,
                             Email=stud_email, ContactNo=stud_mob, Address=stud_address,
                             GuardianContact=stud_gcontact, GuardianName=stud_gname,
-                            Image=stud_image)
+                            Image=stud_image,Pancard=pa,adhaar=adhar)
             obj.save()
         return redirect(stud_profile)
 
@@ -133,7 +141,7 @@ def stud_login(request):
     if request.method == "POST":
         stud_id = request.POST.get('userid')
         stud_pwd = request.POST.get('pass')
-        if StudentDB.objects.filter(StudentId=stud_id, ContactNo=stud_pwd).exists():
+        if StudentDB.objects.filter(StudentId=stud_id, password=stud_pwd).exists():
             request.session['username'] = stud_id
             request.session['password'] = stud_pwd
             messages.success(request, "Login successfully")
@@ -188,3 +196,108 @@ def notification_single(request,news_id):
 def help(request):
     return render(request,'5_help.html')
 
+def entermail1(request):
+    return render(request,'entermail1.html')
+
+
+def generate_and_send_otp(request):
+    if request.method == "POST":
+        mailid1 = request.POST.get("mailid1")
+
+        try:
+            # Check if the email exists in the StudentDB model
+            student = StudentDB.objects.get(Email=mailid1)
+            messages.success(request, 'Please Check your Email')
+        except StudentDB.DoesNotExist:
+            messages.error(request, 'Email is not registered.')
+            # If the email doesn't exist, handle the error or return a response
+            return render(request, 'entermail1.html')  # Customize this template or response
+
+        # Generate a random 6-digit OTP
+        otp = str(random.randint(100000, 999999))
+        request.session['otp'] = otp
+
+        # Send the OTP via email
+        subject = 'Your One-Time Password (OTP)'
+        message = f'Your OTP is: {otp}'
+        from_email = 'akshayasleepergirl@gmail.com'  # Update with your email
+        to_email = [student.Email]
+
+        # Use try-except for send_mail to handle potential email sending errors
+        try:
+            send_mail(subject, message, from_email, to_email)
+        except Exception as e:
+            # Handle the email sending error, log it, or redirect to an error page
+            messages.error(request, 'Please Try Again.')
+            return render(request, 'entermail1.html', {'error_message': str(e)})
+
+        # Redirect to the enterotp1 view after sending the OTP
+        return redirect(reverse('enterotp1') + f'?email={mailid1}')
+
+    # Handle the case where the request method is not POST or any other condition
+    return render(request, 'entermail1.html')  # Customize this template or response
+
+def enterotp1(request):
+    # Get the email value from the query parameters
+    email = request.GET.get('email', None)
+
+    # You can now use the 'email' variable in your template or view logic
+    return render(request, 'enterotp1.html', {'email': email})
+
+
+def verify_otp(request):
+    if request.method == 'POST':
+        entered_otp = request.POST.get('otp1')
+        email = request.POST.get('email1')
+        stored_otp = request.session.get('otp')
+
+        # Check if the email exists in the StudentDB model
+        try:
+            student = StudentDB.objects.get(Email=email)
+        except StudentDB.DoesNotExist:
+            # If the email doesn't exist, handle the error or return a response
+            return render(request, 'email_not_found.html')  # Customize this template or response
+
+        if stored_otp and entered_otp == stored_otp:
+            # Store the email in the session for later use
+            request.session['verified_email'] = email
+            messages.success(request, 'OTP verified Successfully!!')
+            return redirect('newpass')
+        else:
+            messages.error(request, 'Invalid OTP')
+            return redirect('entermail1')
+
+    return render(request, 'entermail1.html')
+
+def newpass(request):
+    # Retrieve the email from the session
+    email = request.session.get('verified_email')
+    if not email:
+        # Handle the case where the email is not in the session
+        return redirect('entermail1')  # Redirect to the entermail1 page or handle as needed
+
+    # Use the email in your newpass view logic
+    return render(request, 'newpass.html',{'email': email})
+
+def update_password(request):
+    if request.method == 'POST':
+        otp1 = request.POST.get('otp1')
+        otp2 = request.POST.get('otp2')
+        email = request.POST.get('email')
+
+        # Check if passwords match
+        if otp1 == otp2:
+            # Assuming you have the student object available, update the password
+            student = StudentDB.objects.get(Email=email) # Replace this with how you get the student object
+
+            # Update the password in the student model
+            student.password = otp1
+            student.save()
+
+            messages.success(request, 'Password updated successfully!')
+            return redirect('main_login')  # Replace 'home' with the appropriate URL name
+
+        else:
+            messages.error(request, 'Passwords do not match. Please try again.')
+
+    return render(request, 'entermail1.html')  # Replace 'your_template.html' with the actual template name

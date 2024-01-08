@@ -10,7 +10,7 @@
         crossorigin="anonymous"></script>
 
 
-<div class="content-wrapper full-page-wrapper d-flex align-items-center myDiv">
+<div class=" full-page-wrapper d-flex align-items-center ">
     <div class="card col-lg-4 mx-auto" style="margin-top:5%;margin-bottom:5%;">
         <div class="card-body px-5 py-5">
             <h3 class="card-title text-left mb-3" style="color:black;text-align:center; ">Student Login</h3>
@@ -21,8 +21,16 @@
                     <input type="text" class="form-control p_input" name="userid">
                 </div>
                 <div class="form-group">
-                    <label>Contact Number *</label>
-                    <input type="text" class="form-control p_input" name="pass">
+                    <label>Password *</label>
+                    <input type="Password" class="form-control p_input" name="pass">
+                </div>
+                <div class="form-group">
+                    <div class="form-group">
+                            {% comment %} {% csrf_token %}
+                            {{ form.as_p }} {% endcomment %}
+                            <a href="{% url 'entermail1' %}">Reset Password</a>
+                        
+                </div>
                 </div>
                 <div class="form-group d-flex align-items-center justify-content-between">
                     <div class="form-check">
@@ -48,14 +56,16 @@
                     <input type="text" class="form-control p_input" name="userid">
                 </div>
                 <div class="form-group">
-                    <label>Contact Number *</label>
-                    <input type="text" class="form-control p_input" name="pass">
+                    <label>Password*</label>
+                    <input type="Password" class="form-control p_input" name="pass">
                 </div>
+                
                 <div class="form-group d-flex align-items-center justify-content-between">
                     <div class="form-check">
                         <label class="form-check-label">
                             <input type="checkbox" class="form-check-input"> Remember me </label>
                     </div>
+                    
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary btn-block enter-btn">Login</button>

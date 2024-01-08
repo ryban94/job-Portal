@@ -42,6 +42,8 @@ urlpatterns = [
     path('news_save/', views.news_save, name="news_save"),
     path('news_view/', views.news_view, name="news_view"),
     path('news_delete/<int:data_id>/', views.news_delete, name="news_delete"),
-    
-    
+    path('placed/',views.placed,name="placed"),
+    path('add_placed/', views.add_placed, name="add_placed"),
+    path('display_placed/', views.display_placed,name="display_placed"),
+    path('placed_delete/<int:data_id>/', views.placed_delete,name="placed_delete"),
 ]

@@ -173,20 +173,35 @@
             </div>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" data-toggle="collapse" href="#ui-jobportal" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="#ui-jobportal3" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
                 <i class="mdi mdi-briefcase"></i>
               </span>
               <span class="menu-title">News</span>
               <i class="menu-arrow"></i>
             </a>
-          <div class="collapse" id="ui-jobportal">
+          <div class="collapse" id="ui-jobportal3">
             <ul class="nav flex-column sub-menu">
               <li class="nav-item"> <a class="nav-link" href="{% url 'add_news' %}">Add news</a></li>
               <li class="nav-item"> <a class="nav-link" href="{% url 'news_view' %}">View news</a></li>
             </ul>
           </div>
         </li>
+        <li class="nav-item menu-items">
+          <a class="nav-link" data-toggle="collapse" href="#ui-jobportal1" aria-expanded="false" aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-briefcase"></i>
+            </span>
+            <span class="menu-title">Placement</span>
+            <i class="menu-arrow"></i>
+          </a>
+        <div class="collapse" id="ui-jobportal1">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{% url 'placed' %}">Add Placement</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'display_placed' %}">View Placement</a></li>
+          </ul>
+        </div>
+      </li>
 
           {% else %}
           <li class="nav-item menu-items">

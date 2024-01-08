@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os.path
+import email
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,6 +42,8 @@ INSTALLED_APPS = [
     'AdminUI',
     'Student',
     'FacultyUI',
+    'django_otp',
+    'django_otp.plugins.otp_totp',
 
 ]
 
@@ -127,4 +130,16 @@ MEDIA_URL = '/media/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'akshayasleepergirl@gmail.com'
+EMAIL_HOST_PASSWORD = 'kbid pqto rjyg dklp'
+# EMAIL_DEBUG = True
+
+# EMAIL_USE_SSL = True
+
+PASSWORD_RESET_TIMEOUT_DAYS = 1
