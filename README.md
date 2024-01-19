@@ -14,9 +14,9 @@ Ensure that your system meets the following requirements to successfully set up 
 
 # Software Requirements
 
-Python: Version 3.6 or higher
-Django: Version 3.0 or higher
-Database: SQLite (default for Django)
+Python: Version 3.6 or higher<br>
+Django: Version 3.0 or higher<br>
+Database: SQLite (default for Django)<br>
 
 # Installation
 
@@ -35,16 +35,16 @@ Install the required dependencies.<br>
 Apply initial migrations to set up the database:<br>
 
 #### python manage.py makemigrations
-#### python manage.py migrate
+#### python manage.py migrate<br>
 
 Configure email settings in the settings.py file to enable the "Forgot Password" feature.<br>
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'your_smtp_server'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'your_email@example.com'
-EMAIL_HOST_PASSWORD = 'your_email_password'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'<br>
+EMAIL_HOST = 'your_smtp_server'<br>
+EMAIL_PORT = 587<br>
+EMAIL_USE_TLS = True<br>
+EMAIL_HOST_USER = 'your_email@example.com'<br>
+EMAIL_HOST_PASSWORD = 'your_email_password'<br>
 
 Run the server.<br>
 
@@ -53,13 +53,13 @@ Run the server.<br>
 
 # Admin Credentials
 
-Username: 4
-Password: 9876543210
+Username: 4 <br>
+Password: 9876543210 <br>
 
 # User Authentication
 
-Only administrators can create accounts for students and faculty.
-Users can log in using their user ID and mobile number.
+Only administrators can create accounts for students and faculty.<br>
+Users can log in using their user ID and mobile number.<br>
 Users can reset their password using the "Forgot Password" feature, which involves receiving an OTP via email.<br>
 
 # Admin Authority
@@ -67,27 +67,27 @@ Users can reset their password using the "Forgot Password" feature, which involv
 Admin faculty members have the authority to add, modify, and delete students, faculty, courses, departments, jobs, placed students, and training programs.<br>
 
 # Navigation
-    Home Page Navbar:
+    Home Page Navbar:<br>
 
-        Home
-        Recruiters
-        Contact Us
-        Gallary
-        Help
-        Job Vacancy List
-        Training Program List
+        Home<br>
+        Recruiters<br>
+        Contact Us<br>
+        Gallary<br>
+        Help<br>
+        Job Vacancy List<br>
+        Training Program List<br>
     
-    Home Page Body:
+    Home Page Body:<br><br>
 
-        View Jobs List
-        Placed Student List
-        Study Programs
-        Aptitude, etc.
-        View Training Programs
+        View Jobs List<br>
+        Placed Student List<br>
+        Study Programs<br>
+        Aptitude, etc.<br>
+        View Training Programs<br>
 
 # Job Application Process
-    Students can apply for jobs.
-    Students can upload their resumes during the application.
-    Once a student applies for a job, they cannot apply for the same job again.
-    Faculty can view the resumes of students who have applied under their respective companies.
-    Feel free to explore the features and functionalities of the College Job Portal! If you have any questions or issues, please refer to the help section or contact us.
+    Students can apply for jobs.<br>
+    Students can upload their resumes during the application.<br>
+    Once a student applies for a job, they cannot apply for the same job again.<br>
+    Faculty can view the resumes of students who have applied under their respective companies.<br>
+    Feel free to explore the features and functionalities of the College Job Portal! If you have any questions or issues, please refer to the help section or contact us.<br>
